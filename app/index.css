@@ -3,23 +3,32 @@ body {
 	color: #fff;
 }
 
+
+/* Calculator body  */
+
 #calculator {
 	width: 320px;
 	height: 430px;
 	border: 1px solid #000;
 	background-color: #222d32;
-	border-radius: 5px;
-	box-shadow: 0 3px 7px black;
+	border-radius: 3px;
+	box-shadow: 0 3px 10px black;
 	text-align: center;
 	padding: 0 10px;
 	margin: 0 auto;
 }
+
+
+/* brand name */
 
 .brand {
 	font-size: 0.75em;
 	opacity: 0.5;
 	font-weight: normal;
 }
+
+
+/*  screen style */
 
 .display {
 	border-radius: 3px;
@@ -41,26 +50,13 @@ body {
 	opacity: 0.75;
 }
 
-.buttons {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	margin-top: 10px;
-	text-align: left;
-}
 
-.buttons li {
-	display: inline-block;
-	width: 23%;
-	margin: 1%;
-}
+/* Buttons style */
 
-.buttons li button {
-	width: 100%;
+.buttons-layout button {
 	padding: 15px;
-	font-size: 1.25em;
 	cursor: pointer;
-	color: #aaa;
+	color: #bbb;
 	border: none;
 	background-color: #29353b;
 	transition: box-shadow, color 0.25s ease-out;
@@ -68,22 +64,38 @@ body {
 	outline: none;
 }
 
-.buttons li button:hover {
+.buttons-layout button:hover {
 	color: #eee;
 }
 
-.buttons li button:active {
+.buttons-layout button:active {
 	box-shadow: 0 0 1px #222;
 }
 
-.buttons li.large-horizontal {
-	width: 48%;
+
+/* Buttons grid layout */
+
+.buttons-layout {
+	width: 100%;
+	display: block;
+	clear: both;
 }
 
-.buttons li.large-vertical {
+.buttons-layout .left-column {
+	float: left;
+	width: 75%;
+}
+
+.buttons-layout .left-column button {
+	width: 32%;
+}
+
+.buttons-layout .right-column {
 	float: right;
+	width: 25%;
 }
 
-.buttons li.large-vertical button {
-	padding: 44.5px 0;
+.buttons-layout .right-column button {
+	width: 98%;
+	margin: 1%;
 }

@@ -16,11 +16,19 @@
 				<div class="result">12121</div>
 				<div class="history">212</div>
 			</div>
-			<ul class="buttons">
-				<li v-for="btn in btns" :class="{'large-horizontal': btn === '0', 'large-vertical' : btn=== '=' }">
-					<button @click="handleClick(btn)">{{btn}}</button>
-				</li>
-			</ul>
+			<div class="buttons-layout">
+				<div class="left-column">
+					<button @click="handleClick">AC</button>
+					<button @click="handleClick">CE</button>
+					<button @click="handleClick">M</button>
+					<button @click="handleClick" v-for="digit in digits.split('')">{{digit}}</button>
+					<button @click="handleClick">+/-</button>
+				</div>
+				<div class="right-column">
+					<button @click="handleClick" v-for="operator in operators.split('')">{{operator}}</button>
+					<button @click="handleClick">=</button>
+				</div>
+			</div>
 		</div>
 		<script src="../node_modules/vue/dist/vue.js"></script>
 		<script src="./index.js"></script>

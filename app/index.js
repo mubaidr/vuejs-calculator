@@ -1,12 +1,13 @@
 var myApp = new Vue({
   el: '#calculator',
   data: {
-    btns: ['AC', 'CE', '/', 'x', '7', '8', '9', '-', '4', '5', '6', '+', '1', '2', '3', '=', '0', '.']
+    digits: '7894561230.',
+    operators: '/x-+'
   },
   computed: {},
   methods: {
-    handleClick (btn) {
-      console.log(btn)
+    handleClick (obj) {
+      console.log(obj)
     }
   },
   created () {}
