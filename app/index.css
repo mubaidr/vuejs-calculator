@@ -4,17 +4,25 @@ body {
 }
 
 
+/* Utilities */
+
+.clearfix {
+	display: block;
+	clear: both;
+}
+
+
 /* Calculator body  */
 
 #calculator {
-	width: 320px;
-	height: 400px;
+	width: 360px;
+	/* height: 400px; */
 	border: 1px solid #000;
 	background-color: #222d32;
 	border-radius: 3px;
 	box-shadow: 0 3px 10px black;
 	text-align: center;
-	padding: 0 10px;
+	padding: 0 20px;
 	margin: 0 auto;
 }
 
@@ -25,6 +33,10 @@ body {
 	font-size: 0.75em;
 	opacity: 0.5;
 	font-weight: normal;
+}
+
+.brand a {
+	color: #eee;
 }
 
 
@@ -41,13 +53,14 @@ body {
 
 .display .result {
 	font-size: 2.5em;
+	min-height: 47px;
 }
 
-.display .history {
+.display .expression {
 	margin-top: 10px;
-	font-size: small;
 	text-align: right;
 	opacity: 0.75;
+	min-height: 18px;
 }
 
 
@@ -77,7 +90,7 @@ body {
 /* Buttons grid layout */
 
 .buttons-layout {
-	/* margin-top: 50px; */
+	display: block;
 }
 
 .buttons-layout .left-column {

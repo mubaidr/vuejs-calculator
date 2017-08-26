@@ -13,8 +13,8 @@
 		<div id="calculator">
 			<h1 class="brand">Vue.js Calculator</h1>
 			<div class="display">
-				<div class="result">12121</div>
-				<div class="history">212</div>
+				<div class="result">{{resullt}}</div>
+				<div class="expression">{{expression}}</div>
 			</div>
 			<div class="buttons-layout">
 				<div class="left-column">
@@ -23,12 +23,17 @@
 					<button @click="handleClick">M</button>
 					<button @click="handleClick" v-for="digit in digits.split('')">{{digit}}</button>
 					<button @click="handleClick">+/-</button>
+					<div class="clearfix"></div>
 				</div>
 				<div class="right-column">
 					<button @click="handleClick" v-for="operator in operators.split('')">{{operator}}</button>
 					<button @click="handleClick">=</button>
+					<div class="clearfix"></div>
 				</div>
+				<div class="clearfix"></div>
 			</div>
+
+			<h2 class="brand"><a href="https://github.com/mubaidr">mubaidr</a></h2>
 		</div>
 		<script src="../node_modules/vue/dist/vue.js"></script>
 		<script src="./index.js"></script>
