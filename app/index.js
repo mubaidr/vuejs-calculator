@@ -6,14 +6,20 @@ var myApp = new Vue({
     operators: '/x-+',
     history: [],
     lastChar: '',
-    resullt: 0,
+    char: '',
+    result: 0,
     expression: ''
   },
   created () {},
-  watch: {},
+  watch: {
+    'expression' (newVal, oldVal) {
+      console.log(newVal, oldVal)
+    }
+  },
   computed: {},
   methods: {
     handleClick (e) {
+      this.lastChar = this.char
       this.char = e.target.innerHTML
       if (this.digits.indexOf(this.char) > -1) {
         this.handleDigit()
@@ -30,24 +36,32 @@ var myApp = new Vue({
         this.expression += this.char
       }
     },
-    handleOperator () {},
+    handleOperator () {
+      if (this.operators.indexOf(this.lastChar) > -1) {
+        this.expression = this.expression.slice(0, -1)
+      }
+      this.expression += this.char
+    },
     handleFunction () {
       switch (this.char) {
-        case 'AC':
+        case 'CE':
           this.expression = ''
           break
-        case 'CE':
+        case 'C':
+          if (this.operators.indexOf(this.expression[this.expression.length - 1]) > -1) {
+            this.expression = this.expression.slice(0, -1)
+          } else {
+            // remove last group of digits
+          }
+          break
+        case 'CLR':
           this.expression = this.expression.slice(0, -1)
           break
-        case 'M':
-          this.history.push(this.expression)
-          this.expression = ''
-          break
         case '+/-':
-          this.resullt *= -1
+          this.result *= -1
           break
         case '=':
-          this.resullt = 99
+          this.result = 99
           break
       }
     }

@@ -13,14 +13,14 @@
 		<div id="calculator">
 			<h1 class="brand">Vue.js Calculator</h1>
 			<div class="display">
-				<div class="result">{{resullt}}</div>
+				<div class="result">{{result}}</div>
 				<div class="expression">{{expression}}</div>
 			</div>
 			<div class="buttons-layout">
 				<div class="left-column">
-					<button @click="handleClick">AC</button>
 					<button @click="handleClick">CE</button>
-					<button @click="handleClick">M</button>
+					<button @click="handleClick">C</button>
+					<button @click="handleClick">CLR</button>
 					<button @click="handleClick" v-for="digit in digits.split('')">{{digit}}</button>
 					<button @click="handleClick">+/-</button>
 					<div class="clearfix"></div>
