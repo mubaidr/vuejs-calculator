@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Vue.js Calculator</title>
-		<link type="text/css" href="./index.css" rel="stylesheet">
-	</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Calculator</title>
+    <link type="text/css" href="./index.css" rel="stylesheet">
+  </head>
 
-	<body>
-		<div id="calculator">
-			<h1 class="brand">Vue.js Calculator</h1>
-			<div class="display">
-				<div class="result">{{result}}</div>
-				<div class="expression">{{expression}}</div>
-			</div>
-			<div class="buttons-layout">
-				<div class="left-column">
-					<button @click="handleClick">CE</button>
-					<button @click="handleClick">C</button>
-					<button @click="handleClick">CLR</button>
-					<button @click="handleClick" v-for="digit in digits.split('')">{{digit}}</button>
-					<button @click="handleClick">+/-</button>
-					<div class="clearfix"></div>
-				</div>
-				<div class="right-column">
-					<button @click="handleClick" v-for="operator in operators.split('')">{{operator}}</button>
-					<button @click="handleClick">=</button>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
+  <body>
+    <div id="calculator">
+      <h1 class="brand">Vue.js Calculator</h1>
+      <div class="display">
+        <div class="result">{{result}}</div>
+        <div class="expression">{{expression}}</div>
+      </div>
+      <div class="buttons-layout">
+        <div class="left-column">
+          <button @click="handleClick">CE</button>
+          <button @click="handleClick">C</button>
+          <button @click="handleClick">CLR</button>
+          <button @click="handleClick" v-for="digit in digits.split('')">{{digit}}</button>
+          <button @click="handleClick">+/-</button>
+          <div class="clearfix"></div>
+        </div>
+        <div class="right-column">
+          <button @click="handleClick" v-for="operator in operators.split('')">{{operator}}</button>
+          <button @click="handleClick">=</button>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
 
-			<h2 class="brand">Designed and Coded by <a href="https://github.com/mubaidr">mubaidr</a></h2>
-		</div>
-		<script src="../node_modules/vue/dist/vue.js"></script>
-		<script src="./index.js"></script>
-	</body>
+      <h2 class="brand">Designed and Coded by <a href="https://github.com/mubaidr">mubaidr</a></h2>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
+  </body>
 
 </html>
