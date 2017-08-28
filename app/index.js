@@ -3,19 +3,14 @@ var myApp = new Vue({
   el: '#calculator',
   data: {
     digits: '7894561230.',
-    operators: '/x-+',
-    history: [],
+    operators: 'x/+-',
     lastChar: '',
     char: '',
     result: 0,
     expression: ''
   },
   created () {},
-  watch: {
-    'expression' (newVal, oldVal) {
-      console.log(newVal, oldVal)
-    }
-  },
+  watch: {},
   computed: {},
   methods: {
     handleClick (e) {
@@ -48,10 +43,13 @@ var myApp = new Vue({
           this.expression = ''
           break
         case 'C':
-          if (this.operators.indexOf(this.expression[this.expression.length - 1]) > -1) {
+          let len = this.expression.length
+          if (this.operators.indexOf(this.expression[len - 1]) > -1) {
             this.expression = this.expression.slice(0, -1)
           } else {
-            // remove last group of digits
+            // eslint-disable-next-line
+						var li = this.expression.lastIndexOf(this.expression.split(/[x/\+-]/gi).pop())
+            this.expression = this.expression.slice(0, li - len)
           }
           break
         case 'CLR':
@@ -61,7 +59,7 @@ var myApp = new Vue({
           this.result *= -1
           break
         case '=':
-          this.result = 99
+          // Calculate result
           break
       }
     }
