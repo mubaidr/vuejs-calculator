@@ -9,9 +9,10 @@ var myApp = new Vue({
     lastChar: '',
     char: '',
     result: 0,
-    expression: '2x2x2'
+    expression: ''
   },
   created () {},
+  mounted () {},
   watch: {},
   computed: {},
   methods: {
@@ -22,6 +23,7 @@ var myApp = new Vue({
     handleClick (e) {
       this.lastChar = this.char
       this.char = e.target.innerHTML
+
       if (this.digits.indexOf(this.char) > -1) {
         this.addDigit()
       } else if (this.operators.indexOf(this.char) > -1) {
@@ -74,46 +76,13 @@ var myApp = new Vue({
           this.result *= -1
           break
         case '=':
-          if (this.lastChar && this.operators.indexOf(this.lastChar) > -1) {
+          if ((this.lastChar && this.operators.indexOf(this.lastChar) > -1) || this.operators.indexOf(this.expression[this.expression.length - 1]) > -1) {
             this.expression = this.expression.slice(0, -1)
           }
-          this.calculateResult()
+          // eslint-disable-next-line
+          this.result = eval(this.expression)
           break
       }
-    },
-    /**
-     * @description Calculate result from the expression
-     */
-    calculateResult () {
-      let copyOfExpression = this.expression
-      let resultingExpresssion = ''
-
-      this.operators.split('').forEach(operator => {
-        if (operator !== 'x') return // DEBUG
-
-        let parts = copyOfExpression.split(new RegExp('[' + operator + ']', 'g'))
-        let numOfParts = parts.length
-        if (numOfParts === 1) return
-
-        let parsedData = this.getNumberFromExp(copyOfExpression, true, true)
-
-        console.log(parsedData)
-
-        for (var i = 0; i < parts.length - 1; i++) {
-          switch (operator) {
-            case 'x':
-              break
-            case '/':
-              break
-            case '+':
-              break
-            case '-':
-              break
-          }
-        }
-      })
-
-      this.result = parseFloat(resultingExpresssion, 10)
     },
     /**
      * @description Get last or first number from a given expression
@@ -123,7 +92,7 @@ var myApp = new Vue({
      */
     getNumberFromExp (exp, first, remove) {
       let result = {}
-      let numbers = exp.split(new RegExp('[' + this.operators + ']', 'g'))
+      let numbers = exp.split(new RegExp('[' + this.operators + ']', 'gi'))
       let number
 
       if (first) {
